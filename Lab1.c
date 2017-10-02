@@ -11,17 +11,20 @@ void addition(_Complex double z1,_Complex double z2)
 
 void substraction(_Complex double z1, _Complex double z2)
 {
-
+  _Complex double sum = z1 - z2;
+  printf("The sum: Z1 - Z2 = %.2f %+.2fi\n", creal(sum), cimag(sum));
 }
 
 void multiplication(_Complex double z1, _Complex double z2)
 {
-
+  _Complex double sum = z1 * z2;
+  printf("The sum: Z1 * Z2 = %.2f %+.2fi\n", creal(sum), cimag(sum));
 }
 
 void division(_Complex double z1, _Complex double z2)
 {
-
+  _Complex double sum = z1 / z2;
+  printf("The sum: Z1 / Z2 = %.2f %+.2fi\n", creal(sum), cimag(sum));
 }
 
 int main(int argc, char const *argv[])
