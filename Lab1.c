@@ -36,12 +36,11 @@ void division(double real1,double real2,double imag1,double imag2)
   printf("The sum: %.2f%+.2fi / %.2f%+.2fi = %.2f%+.2fi\n",real1,imag1,real2,imag2,rsum,isum);
 }//function handling division of complex numbers
 
-void inputf(int choice)
+void inputf(int choice)//this function checks if the input are numbers, if not recursively calls the function again
 {
   char term;
   double real1,real2,imag1,imag2;
   printf("Now enter the complex numbers\nenter the real part\n" );
-  //scanf("%lf", &real1);
   if(scanf("%lf%c", &real1, &term) != 2 || term != '\n')
   {
     printf("Wrong input, try again\n" );
@@ -49,7 +48,6 @@ void inputf(int choice)
     inputf(choice);
   }
   printf("now enter the imaginary part of the first number\n" );
-  //scanf("%lf", &imag1);
   if(scanf("%lf%c", &imag1, &term) != 2 || term != '\n')
   {
     printf("Wrong input, try again\n" );
@@ -57,7 +55,6 @@ void inputf(int choice)
     inputf(choice);
   }
   printf("Now enter the 2nd complex number\nenter the real part\n" );
-  //scanf("%lf", &real2);
   if(scanf("%lf%c", &real2, &term) != 2 || term != '\n')
   {
     printf("Wrong input, try again\n" );
@@ -65,7 +62,6 @@ void inputf(int choice)
     inputf(choice);
   }
   printf("now enter the imaginary part of the second number\n" );
-  //scanf("%lf", &imag2);
   if(scanf("%lf%c", &imag2, &term) != 2 || term != '\n')
   {
     printf("Wrong input, try again\n" );
@@ -73,7 +69,7 @@ void inputf(int choice)
     inputf(choice);
   }
 
-  //switch statement for determining what the user wants to do
+  //at this point switch statement determines what to do based on the input 'choice' in main, and calls the appropriate function
   switch (choice)
     {
     case 1:
@@ -106,10 +102,10 @@ int main(int argc, char const *argv[])
       fseek(stdin,0,SEEK_END);
       main(argc, argv);
 
-    }
+    }//If input is not 1,2,3 or 4 it recursively calls the function again
     else
     {
-      inputf(choice);
+      inputf(choice);//If one of those 4 is pressed, then it calls the inputf function
     }
 
     return 0;
