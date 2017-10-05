@@ -43,7 +43,7 @@ int main(int argc, char const *argv[])
 
     printf("what would you like to do? \n-press 1 for addition\n-press 2 for substraction\n-press 3 for multiplication\n-press 4 for division\n");
 
-    if (scanf("%d", &choice) != (1 | 2 | 3 | 4))
+    if (scanf("%d", &choice) != (1 || 2 || 3 || 4))
     {
       printf("you need to enter 1,2,3 or 4\nexiting\n" );
     }
