@@ -95,17 +95,16 @@ int main(int argc, char const *argv[])
     int choice;
 
     printf("what would you like to do? \n-press 1 for addition\n-press 2 for substraction\n-press 3 for multiplication\n-press 4 for division\n");
-
-    if (scanf("%d", &choice) != (1 || 2 || 3 || 4))
+    scanf("%d", &choice);
+    if (choice == 1 | choice == 2 | choice == 3 | choice == 4)
+    {
+      inputf(choice);//If one of those 4 is pressed, then it calls the inputf function
+    }//If input is not 1,2,3 or 4 it recursively calls the function again
+    else
     {
       printf("you need to enter 1,2,3 or 4\n" );
       fseek(stdin,0,SEEK_END);
       main(argc, argv);
-
-    }//If input is not 1,2,3 or 4 it recursively calls the function again
-    else
-    {
-      inputf(choice);//If one of those 4 is pressed, then it calls the inputf function
     }
 
     return 0;
