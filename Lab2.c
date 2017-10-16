@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+//The code is kept in INT format as it makes the overall output look neat, and handling matrices fast
+//if you enter anything else you will be prompted with entrer int message
 
 //function prototypes
 
@@ -64,7 +66,7 @@ void MatrixInput(int **matrix, int rows, int cols)
       printf("enter the element at row %d and col %d\n", row+1, col+1 );
       if(scanf("%d%c", &matrix[row][col], &term) != 2 || term != '\n')
       {
-        printf("you have to enter numbers\n");
+        printf("you have to enter integers\n");
         fseek(stdin,0,SEEK_END);
         row=rows;col=cols;
         MatrixInput(matrix, rows, cols);break;
@@ -103,39 +105,40 @@ void multiplyMatrices(int **matrix1,int height1,int width1,int **matrix2,int hei
 void promptf(int* width1,int* width2,int* height1,int* height2)
 {
   char term;
-    printf("If you want to multiply matrices, the #collums in the first matrix has to be equal to #rows in the econd matrix\n");
-    printf("enter the height of the first matrix\n" );
-    if(scanf("%d%c", height1, &term ) != 2 || term != '\n')
-    {
-      printf("the dimensions of matrices have to be numbers\n");
-      fseek(stdin,0,SEEK_END);
-      promptf(width1,width2,height1,height2);
+  int heightx=0,widthx=0;
+  printf("If you want to multiply matrices, the #collums in the first matrix has to be equal to #rows in the econd matrix\n");
+  printf("enter the height of the first matrix\n" );
+  if(scanf("%d%c", &heightx, &term ) != 2 || term != '\n')
+  {
+    printf("the dimensions of matrices have to be integers\n");
+    fseek(stdin,0,SEEK_END);
+    promptf(width1,width2,height1,height2);return;
 
-    }
-    printf("enter the width of the first matrix\n" );
-    if(scanf("%d%c", width1, &term ) != 2 || term != '\n')
-    {
-      printf("the dimensions of matrices have to be numbers\n");
-      fseek(stdin,0,SEEK_END);
-      promptf(width1,width2,height1,height2);
+  }else *height1=heightx;heightx=0;
+  printf("enter the width of the first matrix\n" );
+  if(scanf("%d%c", &widthx, &term ) != 2 || term != '\n')
+  {
+    printf("the dimensions of matrices have to be integers\n");
+    fseek(stdin,0,SEEK_END);
+    promptf(width1,width2,height1,height2);return;
 
-    }
-    printf("enter the height of the second matrix\n" );
-    if(scanf("%d%c", height2, &term ) != 2 || term != '\n')
-    {
-      printf("the dimensions of matrices have to be numbers\n");
-      fseek(stdin,0,SEEK_END);
-      promptf(width1,width2,height1,height2);
+  }else *width1=widthx;widthx=0;
+  printf("enter the height of the second matrix\n" );
+  if(scanf("%d%c", &heightx, &term ) != 2 || term != '\n')
+  {
+    printf("the dimensions of matrices have to be integers\n");
+    fseek(stdin,0,SEEK_END);
+    promptf(width1,width2,height1,height2);return;
 
-    }
-    printf("enter the width of the second matrix\n" );
-    if(scanf("%d%c", width2, &term ) != 2 || term != '\n')
-    {
-      printf("the dimensions of matrices have to be numbers\n");
-      fseek(stdin,0,SEEK_END);
-      promptf(width1,width2,height1,height2);
+  }else *height2=heightx;heightx=0;
+  printf("enter the width of the second matrix\n" );
+  if(scanf("%d%c", &widthx, &term ) != 2 || term != '\n')
+  {
+    printf("the dimensions of matrices have to be integers\n");
+    fseek(stdin,0,SEEK_END);
+    promptf(width1,width2,height1,height2);return;
 
-    }
+  }else *width2=widthx;widthx=0;
 
 }//function used to promt user to input the dimensions of the matrices, and checks them
 //against the condtion for matrix multiplication in the main function
